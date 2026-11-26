@@ -200,14 +200,33 @@ API errors follow `{ "error": { "code": "...", "message": "..." } }`. Mutating r
 
 ## 🛠️ Technology Stack
 
-| Area | Technologies |
-| --- | --- |
-| **Web client** | React, Vite, React Router, TanStack Query, React Hook Form, Zod, Recharts, Tailwind CSS, Lucide |
-| **API** | Node.js, Express, Mongoose, Zod, Argon2id, JWT cookies |
-| **Forecasting** | Python, FastAPI, pandas, scikit-learn, LightGBM, joblib |
-| **Database** | MongoDB Atlas, MongoDB GridFS |
-| **Local development** | Docker Compose, Vite proxy |
-| **Deployment** | Vercel, GitHub Actions |
+<table>
+  <tr>
+    <td align="center" width="50%">
+      <strong>🌿 Client experience</strong><br><sub>Responsive kitchen workspace</sub><br><br>
+      <img alt="React 19" src="https://img.shields.io/badge/React-19-149ECA?style=for-the-badge&logo=react&logoColor=white"> <img alt="Vite 8" src="https://img.shields.io/badge/Vite-8-646CFF?style=for-the-badge&logo=vite&logoColor=white"><br>
+      <img alt="Tailwind CSS 4" src="https://img.shields.io/badge/Tailwind_CSS-4-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white"> <img alt="Recharts" src="https://img.shields.io/badge/Recharts-Charts-22A06B?style=for-the-badge">
+    </td>
+    <td align="center" width="50%">
+      <strong>⚙️ Application API</strong><br><sub>Secure, organisation-scoped services</sub><br><br>
+      <img alt="Node.js 24" src="https://img.shields.io/badge/Node.js-24-5FA04E?style=for-the-badge&logo=nodedotjs&logoColor=white"> <img alt="Express 5" src="https://img.shields.io/badge/Express-5-222222?style=for-the-badge&logo=express&logoColor=white"><br>
+      <img alt="Mongoose 9" src="https://img.shields.io/badge/Mongoose-9-880000?style=for-the-badge&logo=mongoose&logoColor=white"> <img alt="Zod" src="https://img.shields.io/badge/Zod-Validation-3E67B1?style=for-the-badge">
+    </td>
+  </tr>
+  <tr>
+    <td align="center" width="50%">
+      <strong>🤖 Forecast service</strong><br><sub>Backtests, demand ranges and model registry</sub><br><br>
+      <img alt="Python 3.12" src="https://img.shields.io/badge/Python-3.12-3776AB?style=for-the-badge&logo=python&logoColor=white"> <img alt="FastAPI" src="https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white"><br>
+      <img alt="pandas" src="https://img.shields.io/badge/pandas-150458?style=for-the-badge&logo=pandas&logoColor=white"> <img alt="scikit-learn" src="https://img.shields.io/badge/scikit--learn-F7931E?style=for-the-badge&logo=scikitlearn&logoColor=white"><br>
+      <img alt="LightGBM" src="https://img.shields.io/badge/LightGBM-Model-2E8B57?style=for-the-badge">
+    </td>
+    <td align="center" width="50%">
+      <strong>🗄️ Data and delivery</strong><br><sub>Persistent storage and deployment</sub><br><br>
+      <img alt="MongoDB Atlas" src="https://img.shields.io/badge/MongoDB_Atlas-47A248?style=for-the-badge&logo=mongodb&logoColor=white"> <img alt="GridFS" src="https://img.shields.io/badge/GridFS-Model_Storage-355E3B?style=for-the-badge"><br>
+      <img alt="Docker Compose" src="https://img.shields.io/badge/Docker_Compose-2496ED?style=for-the-badge&logo=docker&logoColor=white"> <img alt="Vercel" src="https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white">
+    </td>
+  </tr>
+</table>
 
 * * *
 
