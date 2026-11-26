@@ -1,0 +1,15 @@
+{
+  "name": "wastewise",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=22.12 <27" },
+  "workspaces": ["client", "server"],
+  "scripts": {
+    "dev": "concurrently -k -n api,web -c green,blue \"npm:dev --workspace server\" \"npm:dev --workspace client\"",
+    "lint": "npm run lint --workspaces --if-present",
+    "test": "npm run test --workspaces --if-present",
+    "build": "npm run build --workspaces --if-present"
+  },
+  "devDependencies": { "concurrently": "^9.2.1" }
+}
