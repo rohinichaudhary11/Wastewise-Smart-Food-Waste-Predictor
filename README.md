@@ -7,8 +7,6 @@
 Turn kitchen records into practical, explainable preparation plans for restaurants and college canteens.
 
 [![Open WasteWise](https://img.shields.io/badge/Open-Live%20App-176B45?style=for-the-badge&logo=vercel&logoColor=white)](https://wastewise-web-rho.vercel.app)
-[![CI](https://img.shields.io/github/actions/workflow/status/rohinichaudhary11/wastewise-smart-food-waste-predictor/ci.yml?branch=main&style=for-the-badge&logo=githubactions&logoColor=white&label=CI)](https://github.com/rohinichaudhary11/wastewise-smart-food-waste-predictor/actions)
-[![Private repository](https://img.shields.io/badge/Repository-Private-525866?style=for-the-badge&logo=github&logoColor=white)](https://github.com/rohinichaudhary11/wastewise-smart-food-waste-predictor)
 
 </div>
 
