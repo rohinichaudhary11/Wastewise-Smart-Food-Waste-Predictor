@@ -1,50 +1,102 @@
-# WasteWise
+<div align="center">
 
-### Smart food preparation forecasting for restaurants and college canteens
+# WasteWise <br><sub>Smart Food Waste Predictor</sub>
 
-WasteWise helps kitchen teams record preparation, demand and leftovers, understand waste patterns, and plan tomorrow's quantities. The app combines an organisation-scoped operations dashboard with a separate forecasting service and manager-reviewed preparation plans.
+**Prepare smarter. Waste less.**
 
-**Live app:** [wastewise-web-rho.vercel.app](https://wastewise-web-rho.vercel.app) · **Status:** deployed on Vercel
+Turn kitchen records into practical, explainable preparation plans for restaurants and college canteens.
 
-> Forecasts and sustainability figures shown in demo views are illustrative. Synthetic demo records are explicitly labelled and must not be treated as real kitchen performance or model accuracy.
+[![Open WasteWise](https://img.shields.io/badge/Open-Live%20App-176B45?style=for-the-badge&logo=vercel&logoColor=white)](https://wastewise-web-rho.vercel.app)
+[![CI](https://img.shields.io/github/actions/workflow/status/rohinichaudhary11/wastewise-smart-food-waste-predictor/ci.yml?branch=main&style=for-the-badge&logo=githubactions&logoColor=white&label=CI)](https://github.com/rohinichaudhary11/wastewise-smart-food-waste-predictor/actions)
+[![Private repository](https://img.shields.io/badge/Repository-Private-525866?style=for-the-badge&logo=github&logoColor=white)](https://github.com/rohinichaudhary11/wastewise-smart-food-waste-predictor)
 
-## What it does
+</div>
 
-- **Daily kitchen records:** log prepared quantities, unserved leftovers, plate waste, meal, customer count, sell-outs and calendar context.
-- **Tomorrow's plan:** generate item-level P50, P80 or P90 demand recommendations, review the reasons and confidence, then accept or record a manager override.
-- **Waste analytics:** inspect waste quantity, rates, cost, weekday and meal patterns, trends, top-wasted items and operational alerts.
-- **Menu and outlets:** manage food items, units, batch sizes, cost, shelf life, outlets and organisation users.
-- **CSV workflows:** preview imports with row-level validation and duplicates, then export spreadsheet-safe records.
-- **Forecast evaluation:** compare predictions with observed demand, keep sold-out (censored) rows separate, and compare model results with baselines.
-- **Sustainability tools:** track recommendations, challenges and recorded food donations; environmental conversions are estimates based on stated assumptions.
-- **Secure organisation access:** role-based permissions, tenant-scoped database access, Argon2id password hashes, short-lived access tokens, rotating refresh tokens, CSRF checks, rate limits and audit records.
+> **Demo data notice:** Forecasts and sustainability figures shown in demo views are illustrative. Synthetic demo records are labelled and must not be treated as real kitchen performance or model accuracy.
 
-## Product preview
+## The idea
 
-The public landing page and authenticated workspace share the WasteWise GreenTech design system. Sign in or create a workspace from the live app to explore the kitchen dashboard, daily entry, tomorrow's forecast, analytics, recommendations and reports.
+WasteWise gives kitchen teams one place to record what they prepared, understand what was consumed or left over, and plan tomorrow's quantities. Managers can inspect the signals behind a recommendation, choose a service level and record an override.
 
-## Architecture
+## Inside the stack
+
+Each technology group is shown as a compact badge card so the main building blocks are easy to scan.
+
+<table>
+  <tr>
+    <td align="center" width="25%">
+      <strong>01 · Kitchen workspace</strong><br><sub>Responsive data entry and dashboards</sub><br><br>
+      <img alt="React" src="https://img.shields.io/badge/React-19-149ECA?style=for-the-badge&logo=react&logoColor=white"><br>
+      <img alt="Vite" src="https://img.shields.io/badge/Vite-8-646CFF?style=for-the-badge&logo=vite&logoColor=white"><br>
+      <img alt="Tailwind CSS" src="https://img.shields.io/badge/Tailwind_CSS-4-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white">
+    </td>
+    <td align="center" width="25%">
+      <strong>02 · Application API</strong><br><sub>Tenant-scoped operations and auth</sub><br><br>
+      <img alt="Node.js" src="https://img.shields.io/badge/Node.js-24-5FA04E?style=for-the-badge&logo=nodedotjs&logoColor=white"><br>
+      <img alt="Express" src="https://img.shields.io/badge/Express-5-222222?style=for-the-badge&logo=express&logoColor=white"><br>
+      <img alt="MongoDB" src="https://img.shields.io/badge/Mongoose-9-880000?style=for-the-badge&logo=mongoose&logoColor=white">
+    </td>
+    <td align="center" width="25%">
+      <strong>03 · Forecast service</strong><br><sub>Backtests, baselines and demand ranges</sub><br><br>
+      <img alt="Python" src="https://img.shields.io/badge/Python-3.12-3776AB?style=for-the-badge&logo=python&logoColor=white"><br>
+      <img alt="FastAPI" src="https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white"><br>
+      <img alt="scikit-learn" src="https://img.shields.io/badge/scikit--learn-F7931E?style=for-the-badge&logo=scikitlearn&logoColor=white">
+    </td>
+    <td align="center" width="25%">
+      <strong>04 · Data and delivery</strong><br><sub>Persistent storage and automated checks</sub><br><br>
+      <img alt="MongoDB Atlas" src="https://img.shields.io/badge/MongoDB_Atlas-47A248?style=for-the-badge&logo=mongodb&logoColor=white"><br>
+      <img alt="Docker Compose" src="https://img.shields.io/badge/Docker_Compose-2496ED?style=for-the-badge&logo=docker&logoColor=white"><br>
+      <img alt="Vercel" src="https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white">
+    </td>
+  </tr>
+</table>
+
+<div align="center">
+<sub>React · Vite · Tailwind CSS · Node.js · Express · MongoDB · Python · FastAPI · pandas · scikit-learn · LightGBM · Docker · GitHub Actions</sub>
+</div>
+
+## How the pieces connect
+
+<table>
+  <tr>
+    <th align="center">Kitchen team</th>
+    <th align="center">WasteWise web</th>
+    <th align="center">Express API</th>
+    <th align="center">Data + forecasting</th>
+  </tr>
+  <tr>
+    <td align="center">Records meals, preparation, leftovers and context</td>
+    <td align="center">React + Vite<br>same-origin API requests</td>
+    <td align="center">Auth, roles, validation and organisation-scoped data access</td>
+    <td align="center">MongoDB Atlas<br>FastAPI model service<br>GridFS model registry</td>
+  </tr>
+</table>
+
+Only the Express server calls the ML service, using a private API key. Production model training uses the organisation's own operational records. Public benchmark and synthetic data are for pipeline checks only.
+
+## What teams can do
+
+| Workspace | What it supports |
+| --- | --- |
+| **Daily Food Entry** | Record prepared quantities, unserved leftovers, plate waste, meal, customer count, sell-outs and calendar context. |
+| **Tomorrow's Plan** | Review item-level P50, P80 or P90 recommendations, reasons and confidence; accept the plan or record a manager override. |
+| **Waste Analytics** | Explore waste quantity, rates, cost, trends, top-wasted items, meal and weekday patterns, and operational alerts. |
+| **Menu and outlets** | Manage foods, units, batch sizes, costs, shelf life, outlets and organisation users. |
+| **CSV workflows** | Preview imports with row-level validation and duplicate detection; export spreadsheet-safe records. |
+| **Forecast evaluation** | Compare predictions with observed demand and baselines; report sold-out (censored) rows separately. |
+| **Sustainability tools** | Track recommendations, weekly challenges and recorded donations. Environmental conversions are estimates based on stated assumptions. |
+
+## Forecasting principles
+
+WasteWise predicts demand rather than waste:
 
 ```text
-React + Vite client
-        │ same-origin /api rewrite
-        ▼
-Express API ───── MongoDB Atlas
-        │ private key-authenticated requests
-        ▼
-FastAPI ML service ───── GridFS model registry
+consumed demand = quantity prepared - unserved leftover
 ```
 
-| Area | Stack |
-| --- | --- |
-| Web client | React, Vite, React Router, TanStack Query, React Hook Form, Zod, Recharts, Tailwind CSS |
-| API | Node.js, Express, Mongoose, Zod |
-| Forecasting | Python, FastAPI, pandas, scikit-learn, LightGBM, joblib |
-| Persistence | MongoDB and GridFS for model artifacts |
-| Local services | Docker Compose |
-| CI | GitHub Actions: JavaScript lint, tests, build, audit; Python tests and lint |
+Plate waste is tracked separately for portion insights. A sell-out means demand was at least the consumed quantity, so censored rows are kept out of ordinary error metrics. Features must be available before the prediction date. Baselines include same-weekday demand and rolling medians; a candidate model is promoted only when expanding-window backtests beat the best baseline. Cold-start estimates use configurable history thresholds. Recommendations round up to the item's batch size and do not subtract prior leftovers unless reuse is explicitly safe.
 
-Only the Express server calls the ML API. Production model training uses a tenant's own operational records; public benchmark and synthetic data are for pipeline checks only.
+Explore [forecast decisions](docs/FORECASTS.md), [model evaluation](docs/ML.md) and [data provenance](docs/DATA.md).
 
 ## Run locally
 
@@ -54,16 +106,16 @@ Only the Express server calls the ML API. Production model training uses a tenan
 - Python 3.12 for the ML service and Python checks
 - Docker Desktop with Docker Compose
 
-### Setup
+### Start the app
 
-1. Clone the repository and create your local environment file:
+1. Clone this repository and copy the environment template:
 
    ```powershell
    Copy-Item .env.example .env
    ```
 
-2. Replace the placeholder secrets in `.env` with unique random values of at least 32 characters. Keep `.env` local; it is ignored by Git. Configure an Atlas URI or use the local Compose MongoDB URI shown in the example.
-3. Install dependencies and start services:
+2. Replace placeholder secrets in `.env` with unique random values of at least 32 characters. Keep `.env` local; Git ignores it. Configure an Atlas URI or keep the local Compose MongoDB URI from the example.
+3. Install dependencies and start the services:
 
    ```powershell
    npm ci
@@ -71,26 +123,15 @@ Only the Express server calls the ML API. Production model training uses a tenan
    npm run dev
    ```
 
-4. Open the client at [http://localhost:5173](http://localhost:5173). The API is at [http://localhost:5000/api/v1](http://localhost:5000/api/v1); the ML service is bound to loopback on port 8000.
+4. Open the web app at [http://localhost:5173](http://localhost:5173). Express serves [http://localhost:5000/api/v1](http://localhost:5000/api/v1); the ML service is bound to loopback on port 8000.
 
-The API requires MongoDB and does not fall back to in-memory persistence. Atomic workspace registration needs the local MongoDB replica set initialized by the Compose setup. See [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md) for local service details and production guidance.
+The API requires MongoDB and has no in-memory persistence fallback. Workspace registration uses MongoDB transactions, so the local replica set must be initialized by the Compose setup. See [local deployment notes](docs/DEPLOYMENT.md).
 
-## Environment variables
+## Configuration and checks
 
-Use [.env.example](.env.example) as the template. The main settings are:
+Use [.env.example](.env.example) for the available settings. Important variables include `MONGODB_URI`, `JWT_ACCESS_SECRET`, `CSRF_SECRET`, `CLIENT_ORIGIN`, `ML_SERVICE_URL`, `ML_INTERNAL_API_KEY`, `CRON_SECRET` and `TEST_MONGODB_URI`. The test URI must point to a separate disposable database; tests create and clean up their own records. Never add credentials to client code, screenshots, issues or commits. Use the hosting provider's secret store in deployed environments.
 
-| Variable | Purpose |
-| --- | --- |
-| `MONGODB_URI` | Application database connection |
-| `JWT_ACCESS_SECRET`, `CSRF_SECRET` | Independent authentication and CSRF secrets |
-| `CLIENT_ORIGIN` | Exact allowed browser origin(s), comma-separated |
-| `ML_SERVICE_URL`, `ML_INTERNAL_API_KEY` | Private API-to-ML connection |
-| `CRON_SECRET` | Protects scheduled weekly training |
-| `TEST_MONGODB_URI` | Separate disposable database for integration tests |
-
-Never add credentials to the client, source files, screenshots, issues or commits. Use your hosting provider's secret store for deployed environments.
-
-## Quality checks
+Run JavaScript checks:
 
 ```sh
 npm run lint
@@ -98,7 +139,7 @@ npm test
 npm run build
 ```
 
-The server integration suite needs `TEST_MONGODB_URI` pointing to a **separate test database**. It creates and cleans up test records. Python checks:
+Run Python checks:
 
 ```sh
 python -m pip install -r ml-service/requirements-dev.txt
@@ -106,27 +147,23 @@ python -m ruff check ml-service data
 python -m pytest ml-service/tests data
 ```
 
-CI runs these checks on pushes and pull requests. The database-independent tests can run without Atlas; Mongo-backed integration tests need their configured test database.
-
-## Forecast design
-
-WasteWise predicts demand rather than waste:
-
-```text
-consumed demand = quantity prepared − unserved leftover
-```
-
-Plate waste is tracked separately for portion insights. Sell-outs are censored observations: they show demand was at least the consumed quantity, and are kept out of ordinary error metrics. Models use only information available before the prediction date. Baselines include same-weekday demand and rolling medians; candidates are promoted only when expanding-window backtests outperform the best baseline. Low-history items use a manual estimate or recent median according to configurable thresholds. Recommendations round up to the item's batch size and do not subtract previous leftovers unless reuse is explicitly safe.
-
-See [docs/ML.md](docs/ML.md), [docs/FORECASTS.md](docs/FORECASTS.md) and [docs/DATA.md](docs/DATA.md) for evaluation, decision rules and data provenance.
+GitHub Actions runs checks on pushes and pull requests. Database-independent tests can run without Atlas; MongoDB integration tests require `TEST_MONGODB_URI`.
 
 ## Deployment
 
-The current deployment uses separate Vercel projects for the client, Express API and ML service, with MongoDB Atlas for application data. See [docs/VERCEL_DEPLOYMENT.md](docs/VERCEL_DEPLOYMENT.md) for project setup and operational considerations. Deployments are not triggered by local edits; follow the Vercel workflow described there after changing production code.
+The live app is hosted on Vercel with separate web, Express API and ML service projects, and MongoDB Atlas for application data. See [Vercel deployment details](docs/VERCEL_DEPLOYMENT.md) for the endpoints and operational considerations. Re-deploy after production code changes; local edits do not deploy by themselves.
+
+## Security and data honesty
+
+- Organisation-scoped queries and role checks protect tenant data.
+- Passwords use Argon2id; access tokens are short-lived and refresh tokens rotate.
+- CSRF protection, rate limits, secure cookies, request validation and CSV formula-injection protection are enabled.
+- Demo values are illustrative. Synthetic records and sales benchmarks are not presented as real canteen outcomes.
+- Keep secrets out of Git. The local `.env` is ignored; only the placeholder [.env.example](.env.example) belongs in source control.
 
 ## Contributing
 
-Issues and pull requests are welcome. Please include reproduction steps for bugs, avoid committing secrets or raw datasets, and run the relevant checks before opening a pull request. Dataset licenses and limitations are documented in [docs/DATA.md](docs/DATA.md).
+Issues and pull requests are welcome. Include reproduction steps for bugs, avoid committing secrets or raw datasets, and run the relevant checks before opening a pull request. Data licenses and limitations are documented in [docs/DATA.md](docs/DATA.md).
 
 ## License
 
