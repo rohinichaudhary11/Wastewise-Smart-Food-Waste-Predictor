@@ -4,7 +4,8 @@ const refreshSessionSchema = new mongoose.Schema({
   sid: { type: String, required: true },
   digest: { type: String, required: true, select: false },
   createdAt: { type: Date, required: true },
-  expiresAt: { type: Date, required: true }
+  expiresAt: { type: Date, required: true },
+  rememberMe: { type: Boolean, required: true, default: false }
 }, { _id: false, strict: 'throw' });
 
 const userSchema = new mongoose.Schema({

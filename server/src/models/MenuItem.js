@@ -10,6 +10,12 @@ const menuItemSchema = new mongoose.Schema({
   batchSize: { type: Number, min: 0.001, required: true },
   shelfLifeHours: { type: Number, min: 0, max: 8760, required: true },
   isSafelyReusable: { type: Boolean, default: false },
+  manualEstimates: {
+    breakfast: { type: Number, min: 0, default: null },
+    lunch: { type: Number, min: 0, default: null },
+    snacks: { type: Number, min: 0, default: null },
+    dinner: { type: Number, min: 0, default: null }
+  },
   isActive: { type: Boolean, default: true }
 }, { timestamps: true, strict: 'throw' });
 

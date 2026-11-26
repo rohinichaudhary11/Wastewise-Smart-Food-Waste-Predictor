@@ -1,0 +1,107 @@
+openapi: 3.1.0
+info:
+  title: WasteWise API
+  version: 1.0.0
+  description: Organisation-scoped API. Access is authenticated by short-lived HttpOnly cookies; mutating requests also require the CSRF cookie value in X-CSRF-Token.
+servers:
+  - url: /api/v1
+security:
+  - accessCookie: []
+paths:
+  /health:
+    get:
+      security: []
+      summary: API and database readiness
+      responses:
+        '200': { description: API and database are ready }
+        '503': { description: Database is not ready }
+  /auth/csrf:
+    get:
+      security: []
+      summary: Start a CSRF-protected session
+      responses:
+        '200':
+          description: CSRF token and cookie issued
+          content:
+            application/json:
+              schema: { type: object, properties: { csrfToken: { type: string } }, required: [csrfToken] }
+  /analytics:
+    get:
+      summary: Outlet dashboard analytics
+      parameters:
+        - { in: query, name: outletId, required: true, schema: { type: string } }
+        - { in: query, name: from, schema: { type: string, format: date } }
+        - { in: query, name: to, schema: { type: string, format: date } }
+      responses:
+        '200': { description: Aggregated metrics, trends, insights, and alerts }
+        '400': { $ref: '#/components/responses/ValidationError' }
+        '404': { description: Outlet is not available in this organisation }
+  /forecasts:
+    get:
+      summary: Get an outlet's saved preparation plan
+      parameters:
+        - { in: query, name: outletId, required: true, schema: { type: string } }
+        - { in: query, name: date, schema: { type: string, format: date } }
+        - { in: query, name: meal, schema: { type: string, enum: [breakfast, lunch, snacks, dinner] } }
+      responses:
+        '200': { description: Forecast recommendations and decisions }
+        '404': { description: Outlet is not available in this organisation }
+  /forecasts/generate:
+    post:
+      summary: Generate or refresh tomorrow's preparation recommendations
+      responses:
+        '200': { description: Saved item-level forecasts }
+        '400': { $ref: '#/components/responses/ValidationError' }
+  /forecasts/accuracy:
+    get:
+      summary: Compare saved forecasts with uncensored actual demand and baseline
+      parameters:
+        - { in: query, name: outletId, required: true, schema: { type: string } }
+        - { in: query, name: from, schema: { type: string, format: date } }
+        - { in: query, name: to, schema: { type: string, format: date } }
+      responses:
+        '200': { description: Forecast accuracy summary and item records }
+  /reports/weekly:
+    get:
+      summary: Download a weekly PDF report
+      parameters:
+        - { in: query, name: outletId, required: true, schema: { type: string } }
+        - { in: query, name: weekOf, description: Any local outlet date in the week; defaults to today, schema: { type: string, format: date } }
+      responses:
+        '200':
+          description: Monday-to-Sunday PDF report in the outlet's calendar dates
+          content:
+            application/pdf:
+              schema: { type: string, format: binary }
+        '400': { $ref: '#/components/responses/ValidationError' }
+        '404': { description: Outlet is not available in this organisation }
+  /logs:
+    get:
+      summary: List paginated daily service records
+      parameters:
+        - { in: query, name: outletId, schema: { type: string } }
+        - { in: query, name: from, schema: { type: string, format: date } }
+        - { in: query, name: to, schema: { type: string, format: date } }
+        - { in: query, name: page, schema: { type: integer, minimum: 1, default: 1 } }
+        - { in: query, name: limit, schema: { type: integer, minimum: 1, maximum: 200, default: 50 } }
+      responses:
+        '200': { description: Daily logs with pagination metadata }
+components:
+  securitySchemes:
+    accessCookie:
+      type: apiKey
+      in: cookie
+      name: ww_access
+  responses:
+    ValidationError:
+      description: Invalid request data
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              error:
+                type: object
+                properties:
+                  code: { type: string }
+                  message: { type: string }

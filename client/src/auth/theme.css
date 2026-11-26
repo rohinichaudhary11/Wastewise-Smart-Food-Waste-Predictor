@@ -1,0 +1,63 @@
+.theme-toggle{height:32px;display:inline-flex;align-items:center;gap:7px;padding:0 10px;border:1px solid #dfe8df;border-radius:9px;background:#f6faf6;color:#397451;font-size:9px;font-weight:700;transition:background .2s,border-color .2s,transform .2s}
+.theme-toggle:hover{transform:translateY(-1px);background:#eaf4ec;border-color:#bed5c2}
+.auth-panel-toolbar{display:flex;justify-content:flex-end;margin:0 0 12px}
+.auth-story:after{animation:auth-kitchen-orbit 16s ease-in-out infinite alternate}
+@keyframes auth-kitchen-orbit{from{transform:translate(0,0) rotate(0)}to{transform:translate(-22px,-12px) rotate(18deg)}}
+.theme-dark.auth-layout{background:#0b1720;color:#e3eeeb}
+.theme-dark .auth-panel-wrap{background:radial-gradient(ellipse at 70% 10%,#1a393b 0,transparent 46%),#101e27}
+.theme-dark .auth-panel{padding:22px;border:1px solid #29414b;border-radius:18px;background:#12232d;box-shadow:0 25px 70px #02090d50}
+.theme-dark .auth-heading h2{color:#e6f1ee}
+.theme-dark .auth-heading p,.theme-dark .auth-privacy{color:#a0b5b2}
+.theme-dark .auth-heading .eyebrow{color:#94c7ae}
+.theme-dark .form-field{color:#c4d4d1}
+.theme-dark .form-field input,.theme-dark .form-field select{background:#0d1b23;border-color:#30464f;color:#e0ecea;color-scheme:dark}
+.theme-dark .form-field input::placeholder{color:#718985}
+.theme-dark .auth-switch{color:#a0b5b2}
+.theme-dark .auth-switch a{color:#96d1b4}
+.theme-dark .auth-mobile-brand{color:#e3eeeb}
+.theme-dark{color:#e4efed;background:radial-gradient(ellipse at 50% -10%,#173b3d 0,transparent 38%),#0b1720;transition:background .3s,color .3s}
+.theme-dark .workspace-header,.theme-dark .operations-shell,.theme-dark .ops-panel,.theme-dark .dashboard-panel,.theme-dark .org-card,.theme-dark .content-card,.theme-dark .dashboard-chart,.theme-dark .accuracy-chart,.theme-dark .forecast-card,.theme-dark .entry-card,.theme-dark .event-list,.theme-dark .ops-table-wrap,.theme-dark .csv-preview,.theme-dark .preview-rows{background-color:#12232d;border-color:#263c46;color:#d9e7e5}
+.theme-dark .workspace-header{background:#101f28;border-bottom-color:#263b45}
+.theme-dark .workspace-page{background:radial-gradient(ellipse at 50% -10%,#173b3d 0,transparent 39%),#0b1720}
+.theme-dark .operations-shell{box-shadow:0 18px 48px #02090d66}
+.theme-dark .ops-heading,.theme-dark .ops-nav,.theme-dark .dashboard-list,.theme-dark .ops-form,.theme-dark .ops-state,.theme-dark .forecast-controls,.theme-dark .accuracy-controls,.theme-dark .forecast-recommendation>div,.theme-dark .csv-card,.theme-dark .dashboard-empty{background:#142731;border-color:#29414b}
+.theme-dark .ops-heading{background:linear-gradient(115deg,#12232d,#152b34 70%,#17363a)}
+.theme-dark .ops-nav{border-top-color:#263b45;border-bottom-color:#263b45}
+.theme-dark .ops-nav button{color:#a0b4b3}
+.theme-dark .ops-nav button:hover,.theme-dark .theme-toggle:hover{background:#1c383b}
+.theme-dark .dashboard-hero{background:linear-gradient(116deg,#123b3a 0%,#165052 59%,#1e6470 100%)}
+.theme-dark .waste-gauge:before{background:#174c4b}
+.theme-dark .metric-card{background:linear-gradient(145deg,#142731,#12232d);border-color:#29414b;box-shadow:0 5px 16px #02090d26}
+.theme-dark .metric-sage .metric-icon,.theme-dark .metric-blue .metric-icon{background:#1b3d40;color:#8ed0bd}
+.theme-dark .metric-amber .metric-icon{background:#403629;color:#e9bd7d}
+.theme-dark .metric-rose .metric-icon{background:#422e32;color:#e69d99}
+.theme-dark .metric-violet .metric-icon{background:#343449;color:#bcb8ed}
+.theme-dark .dashboard-empty{background:radial-gradient(ellipse at 50% 0,#1b3d3b 0,transparent 62%),#12232d;border-color:#31534f}
+.theme-dark .dashboard-empty .empty-icon{background:#214642;color:#a5dac1}
+.theme-dark .dashboard-heading h2,.theme-dark .ops-heading h2,.theme-dark .dashboard-section-heading h3,.theme-dark .chart-title h3,.theme-dark .list-title h3,.theme-dark .metric-card>strong,.theme-dark .dashboard-empty>strong,.theme-dark .ops-panel-heading h2,.theme-dark .forecast-item-title h3,.theme-dark .forecast-recommendation strong,.theme-dark .accuracy-metric strong,.theme-dark .card-heading h2,.theme-dark .org-details h2,.theme-dark .ops-table td strong,.theme-dark .entry-item-heading h3,.theme-dark .csv-card h3,.theme-dark .dashboard-insight strong,.theme-dark .dashboard-alert strong{color:#e1efec}
+.theme-dark .welcome-row h1{color:#e6f1ee}
+.theme-dark .dashboard-section-label,.theme-dark .dashboard-heading p,.theme-dark .ops-heading p,.theme-dark .ops-panel-heading p,.theme-dark .chart-title p,.theme-dark .dashboard-section-note,.theme-dark .dashboard-insight p,.theme-dark .dashboard-alert p,.theme-dark .dashboard-muted,.theme-dark .metric-label,.theme-dark .metric-card>small,.theme-dark .ops-state p,.theme-dark .forecast-heading p,.theme-dark .forecast-card-top>div>p,.theme-dark .forecast-recommendation span,.theme-dark .forecast-recommendation em,.theme-dark .forecast-evidence li,.theme-dark .forecast-evidence span,.theme-dark .forecast-evidence small,.theme-dark .accuracy-chart-head p,.theme-dark .card-heading p,.theme-dark .org-details p,.theme-dark .outlet-row small,.theme-dark .workspace-footer{color:#9db1af}
+.theme-dark .ops-form label,.theme-dark .forecast-controls label,.theme-dark .accuracy-controls label,.theme-dark .entry-fields label,.theme-dark .entry-extras>label:not(.ops-check),.theme-dark .csv-card>label,.theme-dark .outlet-picker>span{color:#afc1bf}
+.theme-dark input,.theme-dark select,.theme-dark textarea,.theme-dark .outlet-picker select,.theme-dark .forecast-controls input,.theme-dark .forecast-controls select,.theme-dark .accuracy-controls input,.theme-dark .accuracy-chart-head select,.theme-dark .ops-form input,.theme-dark .ops-form select,.theme-dark .ops-form textarea,.theme-dark .entry-filters input,.theme-dark .entry-filters select,.theme-dark .entry-fields input,.theme-dark .entry-extras input,.theme-dark .csv-card input,.theme-dark .csv-card select,.theme-dark .dashboard-dates input,.theme-dark .forecast-decision input,.theme-dark .estimate-required input{background:#0d1b23!important;border-color:#30464f!important;color:#e0ecea!important;color-scheme:dark}
+.theme-dark .ops-table th{background:#172c35;color:#a7bcba}
+.theme-dark .ops-table td,.theme-dark .ops-table th,.theme-dark .outlet-row,.theme-dark .event-row,.theme-dark .forecast-evidence,.theme-dark .forecast-card-bottom,.theme-dark .forecast-decision,.theme-dark .entry-footer{border-color:#263b45;color:#b3c4c2}
+.theme-dark .ops-table td,.theme-dark .preview-row{color:#bacac8}
+.theme-dark .ops-table-wrap,.theme-dark .event-list,.theme-dark .preview-rows{background:#0f2029}
+.theme-dark .outlet-symbol,.theme-dark .org-emblem,.theme-dark .person-avatar,.theme-dark .user-avatar,.theme-dark .count-badge,.theme-dark .entry-batch,.theme-dark .meal-badge,.theme-dark .forecast-recommendation>div:first-child,.theme-dark .accuracy-metric{background:#1a3539;color:#a9d4c2;border-color:#2a464b}
+.theme-dark .org-details code{background:#1d3339;color:#c3d3d0}
+.theme-dark .org-secure,.theme-dark .workspace-footer span:first-child{color:#8bbca1}
+.theme-dark .person-meta span,.theme-dark .ops-table th,.theme-dark .outlet-picker,.theme-dark .entry-filters label,.theme-dark .ops-form label{color:#a1b4b1}
+.theme-dark .role-chip{background:#183b3d;border-color:#2c5a55;color:#a5d5bd}
+.theme-dark .status-active,.theme-dark .confidence-high,.theme-dark .status-accepted{background:#1d4139;color:#9bd0ad}
+.theme-dark .small-button,.theme-dark .ops-secondary,.theme-dark .save-role{background:#1b3d3b;color:#b5dfc6}
+.theme-dark .logout-button,.theme-dark .dashboard-alert button{background:#142832;border-color:#30464f;color:#c2d1cf}
+.theme-dark .theme-toggle{background:#18343a;border-color:#31545a;color:#a9dfd0}
+.theme-dark .dashboard-chart .recharts-cartesian-grid line{stroke:#28404a}
+.theme-dark .dashboard-chart .recharts-text,.theme-dark .accuracy-chart .recharts-text{fill:#a0b5b4}
+.theme-dark .forecast-message.success,.theme-dark .success-copy,.theme-dark .synthetic-note{background:#193a36;color:#aed3bd}
+.theme-dark .synthetic-note strong{color:#a9d6b4}
+.theme-dark .notice-bar,.theme-dark .ops-notice{background:#15514b;color:#e0f4eb}
+.workspace-page,.workspace-header,.operations-shell,.ops-panel,.org-card,.content-card,.dashboard-chart,.metric-card,.dashboard-list,.forecast-card,.entry-card,.csv-card{transition:background-color .25s,border-color .25s,color .25s}
+@media(max-width:520px){.theme-toggle{width:32px;justify-content:center;padding:0}.theme-toggle span{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}}
+@media(max-width:760px){.theme-dark .auth-panel{padding:0;border:0;background:transparent;box-shadow:none}.theme-dark .auth-panel-toolbar{margin-bottom:8px}}
+@media(prefers-reduced-motion:reduce){.theme-toggle,.auth-story:after{transition:none!important;animation:none!important}}

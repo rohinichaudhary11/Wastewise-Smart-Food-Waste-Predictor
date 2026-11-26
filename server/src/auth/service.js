@@ -3,18 +3,21 @@ import { timingSafeEqual } from 'node:crypto';
 import { Organisation, Outlet, User, AuditLog } from '../models/index.js';
 import { hashPassword, verifyPassword } from '../security/passwords.js';
 import { createAccessToken, newRefreshSession, parseRefreshToken } from '../security/tokens.js';
+import { config } from '../config.js';
+
+const SESSION_REFRESH_TTL_MS = 12 * 60 * 60 * 1000;
 
 function safeUser(user) {
   return { id: user._id.toString(), organisationId: user.organisation.toString(), name: user.name, email: user.email, role: user.role };
 }
 
-async function issueSession(user) {
+async function issueSession(user, rememberMe = true) {
   const now = new Date();
   user.refreshSessions = user.refreshSessions.filter(session => session.expiresAt > now).slice(-7);
-  const refresh = newRefreshSession(user);
-  user.refreshSessions.push({ sid: refresh.sid, digest: refresh.digest, createdAt: now, expiresAt: refresh.expiresAt });
+  const refresh = newRefreshSession(user, undefined, rememberMe ? config.refreshTtlMs : SESSION_REFRESH_TTL_MS);
+  user.refreshSessions.push({ sid: refresh.sid, digest: refresh.digest, createdAt: now, expiresAt: refresh.expiresAt, rememberMe });
   await user.save();
-  return { user: safeUser(user), refreshToken: refresh.token, accessToken: await createAccessToken(user, refresh.sid) };
+  return { user: safeUser(user), refreshToken: refresh.token, accessToken: await createAccessToken(user, refresh.sid), rememberMe };
 }
 
 export async function register(input, auditContext) {
@@ -25,6 +28,8 @@ export async function register(input, auditContext) {
       const organisation = await Organisation.create([{
         name: input.organisationName,
         slug: createSlug(input.organisationName),
+        organisationType: input.organisationType,
+        dailyServingCapacity: input.dailyServingCapacity,
         timezone: input.timezone
       }], { session }).then(docs => docs[0]);
       const outlet = await Outlet.create([{
@@ -42,7 +47,7 @@ export async function register(input, auditContext) {
       }], { session }).then(docs => docs[0]);
       const now = new Date();
       const refresh = newRefreshSession(user);
-      user.refreshSessions.push({ sid: refresh.sid, digest: refresh.digest, createdAt: now, expiresAt: refresh.expiresAt });
+      user.refreshSessions.push({ sid: refresh.sid, digest: refresh.digest, createdAt: now, expiresAt: refresh.expiresAt, rememberMe: true });
       await user.save({ session });
       await AuditLog.create([{
         organisation: organisation._id, actor: user._id, action: 'organisation.registered', entityType: 'Organisation', entityId: organisation._id,
@@ -63,7 +68,7 @@ export async function login(input, auditContext) {
     : null;
   const verified = user && await verifyPassword(user.passwordHash, input.password);
   if (!verified) return null;
-  const result = await issueSession(user);
+  const result = await issueSession(user, input.rememberMe);
   await AuditLog.create({
     organisation: user.organisation, actor: user._id, action: 'auth.login', entityType: 'User', entityId: user._id,
     metadata: {}, ipAddress: auditContext.ip, userAgent: auditContext.userAgent
@@ -86,7 +91,8 @@ export async function refresh(rawToken) {
     return null;
   }
   const now = new Date();
-  const next = newRefreshSession(user, parsed.sid);
+  const rememberMe = Boolean(oldSession.rememberMe);
+  const next = newRefreshSession(user, parsed.sid, rememberMe ? config.refreshTtlMs : SESSION_REFRESH_TTL_MS);
   const rotated = await User.updateOne({
     _id: parsed.userId,
     organisation: parsed.organisationId,
@@ -94,10 +100,11 @@ export async function refresh(rawToken) {
   }, { $set: {
     'refreshSessions.$.digest': next.digest,
     'refreshSessions.$.createdAt': now,
-    'refreshSessions.$.expiresAt': next.expiresAt
+    'refreshSessions.$.expiresAt': next.expiresAt,
+    'refreshSessions.$.rememberMe': rememberMe
   } });
   if (rotated.modifiedCount !== 1) return null;
-  return { user: safeUser(user), refreshToken: next.token, accessToken: await createAccessToken(user, next.sid) };
+  return { user: safeUser(user), refreshToken: next.token, accessToken: await createAccessToken(user, next.sid), rememberMe };
 }
 
 export async function logout(rawToken) {

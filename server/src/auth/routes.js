@@ -43,7 +43,7 @@ authRouter.post('/register', authLimiter, async (req, res, next) => {
   if (!validTimezone(input.timezone)) return res.status(400).json({ error: { code: 'INVALID_TIMEZONE', message: 'Choose a valid time zone.' } });
   try {
     const session = await register(input, authContext(req));
-    setAuthCookies(res, session.accessToken, session.refreshToken);
+    setAuthCookies(res, session.accessToken, session.refreshToken, true);
     res.status(201).json({ user: session.user });
   } catch (error) { next(error); }
 });
@@ -54,7 +54,7 @@ authRouter.post('/login', authLimiter, async (req, res, next) => {
   try {
     const session = await login(input, authContext(req));
     if (!session) return res.status(401).json({ error: { code: 'LOGIN_FAILED', message: 'Organisation, email or password is incorrect.' } });
-    setAuthCookies(res, session.accessToken, session.refreshToken);
+    setAuthCookies(res, session.accessToken, session.refreshToken, session.rememberMe);
     res.json({ user: session.user });
   } catch (error) { next(error); }
 });
@@ -66,7 +66,7 @@ authRouter.post('/refresh', refreshLimiter, async (req, res, next) => {
       clearAuthCookies(res);
       return res.status(401).json({ error: { code: 'SESSION_EXPIRED', message: 'Your session expired. Please sign in again.' } });
     }
-    setAuthCookies(res, session.accessToken, session.refreshToken);
+    setAuthCookies(res, session.accessToken, session.refreshToken, session.rememberMe);
     res.json({ user: session.user });
   } catch (error) { next(error); }
 });
@@ -114,7 +114,7 @@ outletRouter.patch('/:outletId', requireRole('admin'), async (req, res, next) =>
   try {
     const update = { ...input };
     if (update.name) update.slug = createSlug(update.name);
-    const outlet = await Outlet.findOneAndUpdate({ _id: req.params.outletId, organisation: req.auth.organisationId }, update, { new: true, runValidators: true });
+    const outlet = await Outlet.findOneAndUpdate({ _id: req.params.outletId, organisation: req.auth.organisationId }, update, { returnDocument: 'after', runValidators: true });
     if (!outlet) return res.status(404).json({ error: { code: 'OUTLET_NOT_FOUND', message: 'Outlet not found.' } });
     await AuditLog.create({ organisation: req.auth.organisationId, actor: req.auth.userId, action: 'outlet.updated', entityType: 'Outlet', entityId: outlet._id });
     res.json({ data: outlet });
@@ -144,7 +144,7 @@ userRouter.patch('/:userId', async (req, res, next) => {
   if (req.params.userId === req.auth.userId.toString() && input.isActive === false) return res.status(400).json({ error: { code: 'SELF_DEACTIVATION', message: 'Ask another administrator to deactivate this account.' } });
   if (req.params.userId === req.auth.userId.toString() && input.role && input.role !== req.auth.role) return res.status(400).json({ error: { code: 'SELF_ROLE_CHANGE', message: 'Ask another administrator to change your role.' } });
   try {
-    const user = await User.findOneAndUpdate({ _id: req.params.userId, organisation: req.auth.organisationId }, input, { new: true, runValidators: true }).select('_id organisation name email role isActive');
+    const user = await User.findOneAndUpdate({ _id: req.params.userId, organisation: req.auth.organisationId }, input, { returnDocument: 'after', runValidators: true }).select('_id organisation name email role isActive');
     if (!user) return res.status(404).json({ error: { code: 'USER_NOT_FOUND', message: 'User not found.' } });
     if (input.isActive === false) user.refreshSessions = [];
     if (input.isActive === false) await user.save();

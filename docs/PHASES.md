@@ -7,4 +7,4 @@
 5. Tomorrow's Plan, manager overrides and accuracy tracking.
 6. PDF reports, broader tests, security review, CI and deployment guide.
 
-Work stops for review after each phase. Features in later phases are not implied to exist until delivered.
+Phases 1–5 are implemented in this repository. The current review boundary is after Phase 5. Phase 6 remains: weekly PDF reports, expanded end-to-end coverage, security review, CI and deployment guidance.

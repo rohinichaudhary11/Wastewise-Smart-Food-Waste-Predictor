@@ -1,11 +1,13 @@
 import { z } from 'zod';
 
-const password = z.string().min(12).max(128);
+const password = z.string().min(8).max(128);
 const email = z.string().trim().email().max(254).transform(value => value.toLowerCase());
 const name = z.string().trim().min(2).max(100);
 
 export const registerSchema = z.object({
   organisationName: z.string().trim().min(2).max(100),
+  organisationType: z.enum(['restaurant', 'college-canteen']).default('restaurant'),
+  dailyServingCapacity: z.number().int().min(1).max(100000).default(100),
   outletName: z.string().trim().min(2).max(100).default('Main kitchen'),
   name,
   email,
@@ -16,7 +18,8 @@ export const registerSchema = z.object({
 export const loginSchema = z.object({
   organisationSlug: z.string().trim().min(2).max(100).transform(value => value.toLowerCase()),
   email,
-  password: z.string().min(1).max(128)
+  password: z.string().min(1).max(128),
+  rememberMe: z.boolean().default(false)
 }).strict();
 
 export const userCreateSchema = z.object({ name, email, password, role: z.enum(['admin', 'manager', 'staff']) }).strict();

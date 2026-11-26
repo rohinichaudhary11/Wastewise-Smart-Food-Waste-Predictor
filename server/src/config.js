@@ -12,7 +12,10 @@ const envSchema = z.object({
   JWT_ACCESS_SECRET: z.string().min(32),
   CSRF_SECRET: z.string().min(32),
   COOKIE_SECURE: z.enum(['true', 'false']).optional(),
-  TRUST_PROXY: z.enum(['true', 'false']).default('false')
+  TRUST_PROXY: z.enum(['true', 'false']).default('false'),
+  ML_SERVICE_URL: z.string().url().default('http://127.0.0.1:8000'),
+  ML_INTERNAL_API_KEY: z.string().min(32).optional(),
+  CRON_SECRET: z.string().min(32).optional()
 });
 
 const parsed = envSchema.safeParse(process.env);

@@ -15,10 +15,12 @@ const forecastSchema = new mongoose.Schema({
     p90: { type: Number, min: 0, required: true }
   },
   likelyRange: { min: { type: Number, min: 0, required: true }, max: { type: Number, min: 0, required: true } },
+  baselineP50: { type: Number, min: 0, default: null },
   recommendedQuantity: { type: Number, min: 0, required: true },
   inputs: { type: mongoose.Schema.Types.Mixed, required: true },
   reasons: { type: [String], default: [] },
   confidence: { type: String, enum: ['none', 'low', 'medium', 'high'], required: true },
+  method: { type: String, required: true },
   modelRun: { type: mongoose.Schema.Types.ObjectId, ref: 'ModelRun', default: null },
   modelVersion: { type: String, required: true },
   status: { type: String, enum: ['pending', 'accepted', 'overridden'], default: 'pending' },
@@ -28,7 +30,7 @@ const forecastSchema = new mongoose.Schema({
   decidedAt: { type: Date, default: null }
 }, { timestamps: true, strict: 'throw' });
 
-forecastSchema.index({ organisation: 1, outlet: 1, predictionDate: -1, meal: 1, item: 1 });
+forecastSchema.index({ organisation: 1, outlet: 1, predictionDate: 1, meal: 1, item: 1 }, { unique: true });
 forecastSchema.path('quantiles.p80').validate(function (value) { return value >= this.quantiles.p50; }, 'P80 demand cannot be lower than P50');
 forecastSchema.path('quantiles.p90').validate(function (value) { return value >= this.quantiles.p80; }, 'P90 demand cannot be lower than P80');
 forecastSchema.path('likelyRange.max').validate(function (value) { return value >= this.likelyRange.min; }, 'Forecast range maximum must be at least its minimum');

@@ -1,5 +1,6 @@
 node_modules
 dist
+.vercel
 .env
 .env.local
 .env.*
@@ -10,3 +11,9 @@ coverage
 .vite
 playwright-report
 test-results
+.venv
+__pycache__
+*.py[cod]
+ml-service/models
+data/benchmarks/
+data/.pytest-tmp/

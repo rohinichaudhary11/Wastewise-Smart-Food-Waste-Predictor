@@ -20,5 +20,25 @@ services:
     entrypoint: ["mongosh", "mongodb://mongo:27017/admin?directConnection=true", "--quiet", "--eval"]
     command:
       - "try { rs.status().ok } catch (e) { rs.initiate({ _id: 'rs0', members: [{ _id: 0, host: 'localhost:27017' }] }); } while (rs.status().myState !== 1) { sleep(1000); }"
+  ml-service:
+    build:
+      context: ./ml-service
+    environment:
+      ML_INTERNAL_API_KEY: ${ML_INTERNAL_API_KEY:?Set ML_INTERNAL_API_KEY in .env}
+      MODEL_DIR: /app/models
+      MIN_MODEL_RECORDS: ${MIN_MODEL_RECORDS:-28}
+      MIN_BASELINE_RECORDS: ${MIN_BASELINE_RECORDS:-7}
+    ports:
+      - "127.0.0.1:8000:8000"
+    volumes:
+      - wastewise-models:/app/models
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/health', timeout=3)"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+    restart: unless-stopped
 volumes:
   wastewise-mongo:
+  wastewise-models:
