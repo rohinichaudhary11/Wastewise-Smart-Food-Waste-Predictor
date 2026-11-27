@@ -1,32 +1,18 @@
-# WasteWise
-### Smart Food Waste Predictor
+# 🌿 WasteWise — Smart Food Waste Predictor
+### Prepare smarter. Waste less. Plan tomorrow's kitchen with confidence.
 
-> Prepare smarter. Waste less. Plan tomorrow's kitchen with confidence.
-
-![React](https://img.shields.io/badge/React-20232A?style=flat-square&logo=react&logoColor=61DAFB) ![Vite](https://img.shields.io/badge/Vite-646CFF?style=flat-square&logo=vite&logoColor=FFD62E) ![Node.js](https://img.shields.io/badge/Node.js-5FA04E?style=flat-square&logo=nodedotjs&logoColor=white) ![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
-![Express](https://img.shields.io/badge/Express-222222?style=flat-square&logo=express&logoColor=white) ![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=flat-square&logo=fastapi&logoColor=white) ![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=flat-square&logo=mongodb&logoColor=white) ![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white)
+[![React 19](https://img.shields.io/badge/React-20232A?style=flat-square&logo=react&logoColor=61DAFB)](https://react.dev/) [![Vite 8](https://img.shields.io/badge/Vite-646CFF?style=flat-square&logo=vite&logoColor=FFD62E)](https://vitejs.dev/) [![Node.js 22+](https://img.shields.io/badge/Node.js-5FA04E?style=flat-square&logo=nodedotjs&logoColor=white)](https://nodejs.org/) [![Python 3.12](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)](https://www.python.org/)
+[![Express 5](https://img.shields.io/badge/Express-222222?style=flat-square&logo=express&logoColor=white)](https://expressjs.com/) [![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=flat-square&logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com/) [![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=flat-square&logo=mongodb&logoColor=white)](https://www.mongodb.com/) [![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white)](https://www.docker.com/)
 
 WasteWise helps restaurants and college canteens record daily preparation and leftovers, spot waste patterns, and make better food preparation decisions for the next service.
 
-## Live App
+🌐 **Live app:** [wastewise-web-rho.vercel.app](https://wastewise-web-rho.vercel.app)
 
-[Open WasteWise](https://wastewise-web-rho.vercel.app)
+**[Key Features](#-key-features) · [How It Works](#-how-it-works) · [Quick Start](#-quick-start-guide) · [API Reference](#-api-reference) · [Customising](#-customising) · [Technology Stack](#technology-stack) · [Documentation](#-documentation)**
 
-## Explore the Project
+* * *
 
-| Section | What you'll find |
-| --- | --- |
-| [Features](#-key-features) | Daily records, forecasts, analytics, alerts and workspace controls |
-| [How it works](#-how-it-works) | The workflow from kitchen records to better preparation decisions |
-| [Quick start](#-quick-start-guide) | Local setup, environment variables and development commands |
-| [API reference](#-api-reference) | Authentication, operations and forecasting endpoints |
-| [Customising](#-customising) | Configuration and deployment guidance |
-| [Technology stack](#technology-stack) | The main domains and technologies used in WasteWise |
-| [Documentation](#-documentation) | Forecasting, ML, data, security and deployment notes |
-
----
-
-## Overview
+## 📌 Overview
 
 WasteWise brings everyday kitchen records and next-day planning into one workspace. Teams record what was prepared, what was consumed and what remained. Managers can review forecasts, see the signals behind them, choose a service level and save an accepted plan or a quantity override.
 
