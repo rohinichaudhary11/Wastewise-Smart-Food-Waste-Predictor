@@ -1,3 +1,5 @@
+<div align="center">
+
 # 🌿 WasteWise — Smart Food Waste Predictor
 ### Prepare smarter. Waste less. Plan tomorrow's kitchen with confidence.
 
@@ -11,6 +13,8 @@ WasteWise helps restaurants and college canteens record daily preparation and le
 **[Key Features](#-key-features) · [How It Works](#-how-it-works) · [Quick Start](#-quick-start-guide) · [API Reference](#-api-reference) · [Customising](#-customising) · [Technology Stack](#technology-stack) · [Documentation](#-documentation)**
 
 * * *
+
+</div>
 
 ## 📌 Overview
 
