@@ -217,12 +217,12 @@ API errors follow `{ "error": { "code": "...", "message": "..." } }`. Mutating r
 
 ## Technology Stack
 
-| Domain | Features |
+| Domain | Technologies Used |
 | --- | --- |
-| Client | React, Vite, Tailwind CSS, Recharts |
-| API | Node.js, Express, Mongoose, Zod |
-| Forecasting | Python, FastAPI, pandas, scikit-learn, LightGBM |
-| Data and delivery | MongoDB Atlas, GridFS, Docker Compose, Vercel |
+| Client application | React 19, Vite 8, Tailwind CSS 4, Recharts 3 |
+| Backend API | Node.js 22+, Express 5, Mongoose 9, Zod 4 |
+| Forecasting service | Python 3.12, FastAPI 0.165, pandas 3.1, scikit-learn 1.9, LightGBM 4.7 |
+| Data and deployment | MongoDB Atlas, GridFS, Docker Compose, Vercel |
 
 * * *
 
