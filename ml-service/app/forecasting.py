@@ -15,6 +15,7 @@ from sklearn.ensemble import RandomForestRegressor
 from sklearn.linear_model import Ridge
 from sklearn.metrics import mean_absolute_error
 from sklearn.model_selection import TimeSeriesSplit
+
 from app.model_store import persist_outlet, restore_outlet
 
 FEATURES = [
