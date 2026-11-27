@@ -1,15 +1,32 @@
-# 🌿 WasteWise — Smart Food Waste Predictor
-### Prepare smarter. Waste less. Plan tomorrow's kitchen with confidence.
+# WasteWise
+### Smart Food Waste Predictor
+
+> Prepare smarter. Waste less. Plan tomorrow's kitchen with confidence.
+
+![React](https://img.shields.io/badge/React-20232A?style=flat-square&logo=react&logoColor=61DAFB) ![Vite](https://img.shields.io/badge/Vite-646CFF?style=flat-square&logo=vite&logoColor=FFD62E) ![Node.js](https://img.shields.io/badge/Node.js-5FA04E?style=flat-square&logo=nodedotjs&logoColor=white) ![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
+![Express](https://img.shields.io/badge/Express-222222?style=flat-square&logo=express&logoColor=white) ![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=flat-square&logo=fastapi&logoColor=white) ![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=flat-square&logo=mongodb&logoColor=white) ![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white)
 
 WasteWise helps restaurants and college canteens record daily preparation and leftovers, spot waste patterns, and make better food preparation decisions for the next service.
 
-🌐 **Live app:** [wastewise-web-rho.vercel.app](https://wastewise-web-rho.vercel.app)
+## Live App
 
-**[Key Features](#-key-features) · [How It Works](#-how-it-works) · [Quick Start](#-quick-start-guide) · [API Reference](#-api-reference) · [Customising](#-customising) · [Technology Stack](#-technology-stack)**
+[Open WasteWise](https://wastewise-web-rho.vercel.app)
 
-* * *
+## Explore the Project
 
-## 📌 Overview
+| Section | What you'll find |
+| --- | --- |
+| [Features](#-key-features) | Daily records, forecasts, analytics, alerts and workspace controls |
+| [How it works](#-how-it-works) | The workflow from kitchen records to better preparation decisions |
+| [Quick start](#-quick-start-guide) | Local setup, environment variables and development commands |
+| [API reference](#-api-reference) | Authentication, operations and forecasting endpoints |
+| [Customising](#-customising) | Configuration and deployment guidance |
+| [Technology stack](#technology-stack) | The main domains and technologies used in WasteWise |
+| [Documentation](#-documentation) | Forecasting, ML, data, security and deployment notes |
+
+---
+
+## Overview
 
 WasteWise brings everyday kitchen records and next-day planning into one workspace. Teams record what was prepared, what was consumed and what remained. Managers can review forecasts, see the signals behind them, choose a service level and save an accepted plan or a quantity override.
 
@@ -198,35 +215,14 @@ API errors follow `{ "error": { "code": "...", "message": "..." } }`. Mutating r
 
 * * *
 
-## 🛠️ Technology Stack
+## Technology Stack
 
-<table>
-  <tr>
-    <td align="center" width="50%">
-      <strong>🌿 Client experience</strong><br><sub>Responsive kitchen workspace</sub><br><br>
-      <img alt="React" src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB"> <img alt="Vite" src="https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=FFD62E"><br>
-      <img alt="Tailwind CSS" src="https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white"> <img alt="Recharts" src="https://img.shields.io/badge/Recharts-22A06B?style=for-the-badge">
-    </td>
-    <td align="center" width="50%">
-      <strong>⚙️ Application API</strong><br><sub>Secure, organisation-scoped services</sub><br><br>
-      <img alt="Node.js" src="https://img.shields.io/badge/Node.js-5FA04E?style=for-the-badge&logo=nodedotjs&logoColor=white"> <img alt="Express" src="https://img.shields.io/badge/Express-222222?style=for-the-badge&logo=express&logoColor=white"><br>
-      <img alt="Mongoose" src="https://img.shields.io/badge/Mongoose-880000?style=for-the-badge&logo=mongoose&logoColor=white"> <img alt="Zod" src="https://img.shields.io/badge/Zod-3E67B1?style=for-the-badge">
-    </td>
-  </tr>
-  <tr>
-    <td align="center" width="50%">
-      <strong>🤖 Forecast service</strong><br><sub>Backtests, demand ranges and model registry</sub><br><br>
-      <img alt="Python" src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white"> <img alt="FastAPI" src="https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white"><br>
-      <img alt="pandas" src="https://img.shields.io/badge/pandas-150458?style=for-the-badge&logo=pandas&logoColor=white"> <img alt="scikit-learn" src="https://img.shields.io/badge/scikit--learn-F7931E?style=for-the-badge&logo=scikitlearn&logoColor=white"><br>
-      <img alt="LightGBM" src="https://img.shields.io/badge/LightGBM-2E8B57?style=for-the-badge">
-    </td>
-    <td align="center" width="50%">
-      <strong>🗄️ Data and delivery</strong><br><sub>Persistent storage and deployment</sub><br><br>
-      <img alt="MongoDB Atlas" src="https://img.shields.io/badge/MongoDB_Atlas-47A248?style=for-the-badge&logo=mongodb&logoColor=white"> <img alt="GridFS" src="https://img.shields.io/badge/GridFS-355E3B?style=for-the-badge"><br>
-      <img alt="Docker Compose" src="https://img.shields.io/badge/Docker_Compose-2496ED?style=for-the-badge&logo=docker&logoColor=white"> <img alt="Vercel" src="https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white">
-    </td>
-  </tr>
-</table>
+| Domain | Features |
+| --- | --- |
+| Client | React, Vite, Tailwind CSS, Recharts |
+| API | Node.js, Express, Mongoose, Zod |
+| Forecasting | Python, FastAPI, pandas, scikit-learn, LightGBM |
+| Data and delivery | MongoDB Atlas, GridFS, Docker Compose, Vercel |
 
 * * *
 
