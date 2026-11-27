@@ -204,26 +204,26 @@ API errors follow `{ "error": { "code": "...", "message": "..." } }`. Mutating r
   <tr>
     <td align="center" width="50%">
       <strong>🌿 Client experience</strong><br><sub>Responsive kitchen workspace</sub><br><br>
-      <img alt="React 19" src="https://img.shields.io/badge/React-19-149ECA?style=for-the-badge&logo=react&logoColor=white"> <img alt="Vite 8" src="https://img.shields.io/badge/Vite-8-646CFF?style=for-the-badge&logo=vite&logoColor=white"><br>
-      <img alt="Tailwind CSS 4" src="https://img.shields.io/badge/Tailwind_CSS-4-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white"> <img alt="Recharts" src="https://img.shields.io/badge/Recharts-Charts-22A06B?style=for-the-badge">
+      <img alt="React" src="https://img.shields.io/badge/React-17351F?style=for-the-badge&logo=react&logoColor=BDF34F"> <img alt="Vite" src="https://img.shields.io/badge/Vite-355C37?style=for-the-badge&logo=vite&logoColor=C4EE73"><br>
+      <img alt="Tailwind CSS" src="https://img.shields.io/badge/Tailwind_CSS-4C7A45?style=for-the-badge&logo=tailwindcss&logoColor=E5F4CF"> <img alt="Recharts" src="https://img.shields.io/badge/Recharts-6D9B55?style=for-the-badge">
     </td>
     <td align="center" width="50%">
       <strong>⚙️ Application API</strong><br><sub>Secure, organisation-scoped services</sub><br><br>
-      <img alt="Node.js 24" src="https://img.shields.io/badge/Node.js-24-5FA04E?style=for-the-badge&logo=nodedotjs&logoColor=white"> <img alt="Express 5" src="https://img.shields.io/badge/Express-5-222222?style=for-the-badge&logo=express&logoColor=white"><br>
-      <img alt="Mongoose 9" src="https://img.shields.io/badge/Mongoose-9-880000?style=for-the-badge&logo=mongoose&logoColor=white"> <img alt="Zod" src="https://img.shields.io/badge/Zod-Validation-3E67B1?style=for-the-badge">
+      <img alt="Node.js" src="https://img.shields.io/badge/Node.js-2F6B3A?style=for-the-badge&logo=nodedotjs&logoColor=BDF34F"> <img alt="Express" src="https://img.shields.io/badge/Express-17351F?style=for-the-badge&logo=express&logoColor=E5F4CF"><br>
+      <img alt="Mongoose" src="https://img.shields.io/badge/Mongoose-5B3B2E?style=for-the-badge&logo=mongoose&logoColor=F6D4B8"> <img alt="Zod" src="https://img.shields.io/badge/Zod-496A50?style=for-the-badge">
     </td>
   </tr>
   <tr>
     <td align="center" width="50%">
       <strong>🤖 Forecast service</strong><br><sub>Backtests, demand ranges and model registry</sub><br><br>
-      <img alt="Python 3.12" src="https://img.shields.io/badge/Python-3.12-3776AB?style=for-the-badge&logo=python&logoColor=white"> <img alt="FastAPI" src="https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white"><br>
-      <img alt="pandas" src="https://img.shields.io/badge/pandas-150458?style=for-the-badge&logo=pandas&logoColor=white"> <img alt="scikit-learn" src="https://img.shields.io/badge/scikit--learn-F7931E?style=for-the-badge&logo=scikitlearn&logoColor=white"><br>
-      <img alt="LightGBM" src="https://img.shields.io/badge/LightGBM-Model-2E8B57?style=for-the-badge">
+      <img alt="Python" src="https://img.shields.io/badge/Python-315C3A?style=for-the-badge&logo=python&logoColor=F4E2A8"> <img alt="FastAPI" src="https://img.shields.io/badge/FastAPI-267A5B?style=for-the-badge&logo=fastapi&logoColor=E5F4CF"><br>
+      <img alt="pandas" src="https://img.shields.io/badge/pandas-4E6680?style=for-the-badge&logo=pandas&logoColor=E5F4CF"> <img alt="scikit-learn" src="https://img.shields.io/badge/scikit--learn-BB6E32?style=for-the-badge&logo=scikitlearn&logoColor=FFF0D0"><br>
+      <img alt="LightGBM" src="https://img.shields.io/badge/LightGBM-4B8A58?style=for-the-badge">
     </td>
     <td align="center" width="50%">
       <strong>🗄️ Data and delivery</strong><br><sub>Persistent storage and deployment</sub><br><br>
-      <img alt="MongoDB Atlas" src="https://img.shields.io/badge/MongoDB_Atlas-47A248?style=for-the-badge&logo=mongodb&logoColor=white"> <img alt="GridFS" src="https://img.shields.io/badge/GridFS-Model_Storage-355E3B?style=for-the-badge"><br>
-      <img alt="Docker Compose" src="https://img.shields.io/badge/Docker_Compose-2496ED?style=for-the-badge&logo=docker&logoColor=white"> <img alt="Vercel" src="https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white">
+      <img alt="MongoDB Atlas" src="https://img.shields.io/badge/MongoDB_Atlas-3F7F45?style=for-the-badge&logo=mongodb&logoColor=E8F5D0"> <img alt="GridFS" src="https://img.shields.io/badge/GridFS-4F754A?style=for-the-badge"><br>
+      <img alt="Docker Compose" src="https://img.shields.io/badge/Docker_Compose-347C78?style=for-the-badge&logo=docker&logoColor=E5F4CF"> <img alt="Vercel" src="https://img.shields.io/badge/Vercel-17351F?style=for-the-badge&logo=vercel&logoColor=BDF34F">
     </td>
   </tr>
 </table>
